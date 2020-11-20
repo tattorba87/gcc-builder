@@ -18,6 +18,7 @@ source ./gcc-build-vars.sh
 
 ./fetch-gcc.sh
 ./unpack-gcc.sh
+./get-prerequisites.sh
 ./configure-gcc.sh
 ./make-gcc.sh
 
