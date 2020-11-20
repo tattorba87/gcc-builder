@@ -32,7 +32,7 @@ then
             --prefix=$GCC_INSTALL_PREFIX        \
             --program-suffix=$GCC_EXE_SUFFIX    \
             --enable-languages=c,c++,fortran    \
-            --disable-multilib                  \
+            --disable-multilib
     else
         echo "Unknown build platform! Platform = $GCC_PLATFORM!"
         exit 1
