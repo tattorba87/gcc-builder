@@ -1,11 +1,10 @@
-Name:       kewb-gcc%{gcc_tag}
+Name:       gcc_builder-gcc%{gcc_tag}
 Version:    %{gcc_version}
 Release:    %{gcc_rpm_release}
 
-Summary:    Custom GCC %{gcc_version} build by KEWB
+Summary:    Custom GCC %{gcc_version} build by GCC Builder tool
 License:    GPL
 Group:      Development Tools
-Vendor:     KEWB Enterprises
 
 AutoReq:        0
 ExclusiveArch:  %{product_arch}

@@ -19,36 +19,6 @@ cd ./tarballs
 
 echo "Checking for required tarballs... "
 
-if [ "$GCC_PLATFORM" == "Linux" ]
-then
-    if [ ! -e $GMP_TARBALL ]
-    then
-        echo "Downloading $GMP_TARBALL... "
-        wget http://ftp.gnu.org/gnu/gmp/$GMP_TARBALL
-    fi
-
-    if [ ! -e $MPC_TARBALL ]
-    then
-        echo "Downloading $MPC_TARBALL... "
-        wget http://ftp.gnu.org/gnu/mpc/$MPC_TARBALL
-    fi
-
-    if [ ! -e $MPFR_TARBALL ]
-    then
-        echo "Downloading $MPFR_TARBALL... "
-        wget http://ftp.gnu.org/gnu/mpfr/$MPFR_TARBALL
-    fi
-fi
-
-if [ "$GCC_PLATFORM" == "Linux" ] && [ "$GCC_USE_CUSTOM_BINUTILS" == "YES" ]
-then
-    if [ ! -e $BU_TARBALL ]
-    then
-        echo "Downloading $BU_TARBALL... "
-        wget http://ftp.gnu.org/gnu/binutils/$BU_TARBALL
-    fi
-fi
-
 if [ ! -e $GCC_TARBALL ]
 then
     echo "Downloading $GCC_TARBALL... "

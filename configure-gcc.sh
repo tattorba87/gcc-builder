@@ -24,45 +24,17 @@ then
     echo ""
     echo "Running configure from $GCC_SRC_DIR... "
 
-    if [ "$GCC_PLATFORM" == "FreeBSD" ]
+    if [ "$GCC_PLATFORM" == "Linux" ]
     then
         $GCC_SRC_DIR/configure -v               \
             --with-pkgversion="$GCC_PKG_NAME"   \
             --prefix=$GCC_INSTALL_PREFIX        \
             --program-suffix=$GCC_EXE_SUFFIX    \
-            --enable-tls                        \
-            --enable-shared                     \
-            --enable-threads=posix              \
-            --enable-languages=c,c++            \
-            --enable-lto                        \
-            --enable-bootstrap                  \
-            --disable-nls                       \
+            --enable-languages=c,c++,fortran    \
             --disable-multilib                  \
-            --disable-install-libiberty         \
-            --with-system-zlib                  \
-            --with-gmp=/usr/local               \
-            --with-mpfr=/usr/local              \
-            --with-mpc=/usr/local
-
-    elif [ "$GCC_PLATFORM" == "Linux" ]
-    then
-        $GCC_SRC_DIR/configure -v               \
-            --with-pkgversion="$GCC_PKG_NAME"   \
-            --prefix=$GCC_INSTALL_PREFIX        \
-            --program-suffix=$GCC_EXE_SUFFIX    \
-            --enable-tls                        \
-            --enable-shared                     \
-            --enable-threads=posix              \
-            --enable-__cxa_atexit               \
-            --enable-clocale=gnu                \
-            --enable-languages=c,c++            \
-            --enable-lto                        \
-            --enable-bootstrap                  \
-            --disable-nls                       \
-            --disable-multilib                  \
-            --disable-install-libiberty         \
-            --disable-werror                    \
-            --with-system-zlib
+    else
+        echo "Unknown build platform!"
+        exit 1
     fi
 
     echo "GCC configuration completed!"
@@ -70,26 +42,4 @@ then
 else
     echo " found"
     echo "GCC configure has already been run"
-fi
-
-##- Run the binutils configure script.
-##
-if [ "$GCC_PLATFORM" == "Linux" ] && [ "$GCC_USE_CUSTOM_BINUTILS" == "YES" ]
-then
-    cd $BU_BLD_DIR
-    echo -n "Checking for configuration log in $BU_BLD_DIR..."
-
-    if [ ! -e config.log ]
-    then
-        echo ""
-        echo "Running configure from $BU_SRC_DIR... "
-
-        $BU_SRC_DIR/configure -v
-
-        echo "binutils configuration completed!"
-        echo ""
-    else
-        echo " found"
-        echo "Configure has already been run for binutils"
-    fi
 fi
