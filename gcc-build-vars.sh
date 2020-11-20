@@ -12,11 +12,6 @@
 ##
 export GCC_VERSION=4.9.2
 
-##- Customize variable this to name the installation; the custom name is
-##  displayed when a user invokes gcc/g++ with the -v or --version flags.
-##
-export GCC_PKG_NAME='GCC Builder Build'
-
 ##- Customize this variable to define the middle substring of the GCC build
 ##  triple.
 ##
@@ -43,18 +38,6 @@ export GCC_TIME_STAMP=202011201200
 ##
 export GCC_BUILD_JOBS_ARG='-j64'
 export GCC_TEST_JOBS_ARG='-j32'
-
-
-##------------------------------------------------------------------------------
-##      Maybe change below this line, if you have a good reason.
-##------------------------------------------------------------------------------
-##
-##- Customize this variable if you want the gcc/g++ executables to be
-##  built with a suffix in their names (e.g., gccfoo/g++foo). In general,
-##  this is best left undefined.
-##
-export GCC_EXE_SUFFIX=
-
 
 
 ##------------------------------------------------------------------------------

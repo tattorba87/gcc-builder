@@ -22,5 +22,6 @@ echo "Checking for required tarballs... "
 if [ ! -e $GCC_TARBALL ]
 then
     echo "Downloading $GCC_TARBALL... "
-    wget http://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/$GCC_TARBALL
+    #wget http://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/$GCC_TARBALL
+    curl ftp://ftp.mirrorservice.org/sites/sourceware.org/pub/gcc/releases/gcc-$GCC_VERSION/$GCC_TARBALL -O
 fi

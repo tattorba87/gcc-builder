@@ -32,7 +32,7 @@ then
     echo ""
     echo "Making new source directory..."
     echo "Upacking GCC tarball $GCC_TARBALL..."
-    tar xf ./tarballs/$GCC_TARBALL
+    tar -xzf ./tarballs/$GCC_TARBALL
 
     if [ "$GCC_PLATFORM" = "Linux" ]
     then
@@ -43,38 +43,6 @@ then
     fi
 else
     echo " already exists"
-fi
-
-##- Apply GCC patches.
-##
-echo -n "Checking for GCC build directory $GCC_BLD_DIR... "
-if [ ! -e $GCC_BLD_DIR ]
-then
-    echo ""
-    echo "Making new build directory..."
-    mkdir -v $GCC_BLD_DIR
-else
-    echo " already exists"
-fi
-
-cd $GCC_SRC_DIR
-
-echo -n "Checking for existence of custom GCC fixes... "
-if [ ! -e custom_fixes_done ]
-then
-    echo ""
-    echo "Applying custom fixes..."
-
-    if [ ! -e config.guess-orig ]
-    then
-        echo "Applying config.guess customization..."
-        cp -p config.guess config.guess-orig
-        cp ../custom-config-guess.sh ./config.guess
-    fi
-
-    touch custom_fixes_done
-else
-    echo " already applied"
 fi
 
 echo "GCC unpacking completed!"

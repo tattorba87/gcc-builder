@@ -28,9 +28,7 @@ then
     if [ "$GCC_PLATFORM" == "Linux" ]
     then
         $GCC_SRC_DIR/configure -v               \
-            --with-pkgversion="$GCC_PKG_NAME"   \
             --prefix=$GCC_INSTALL_PREFIX        \
-            --program-suffix=$GCC_EXE_SUFFIX    \
             --enable-languages=c,c++            \
             --disable-multilib
     else
