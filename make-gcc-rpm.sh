@@ -93,8 +93,8 @@ if [ "$PLATFORM_OS" = "FreeBSD" ] && [ "$PLATFORM_ARCH" = "amd64" ]; then
 fi
 
 ##- Form the release string (e.g., 3.el6 or 1.bsd10).
-##
-RPM_RELEASE=${RELEASE_VERSION}.${PLATFORM_DESC}
+## Remove '-' which is illegal
+RPM_RELEASE=${RELEASE_VERSION}.${PLATFORM_DESC//-}
 
 ##- Copy the spec file into the SPECS directory for rpmbuild to use.
 ##
