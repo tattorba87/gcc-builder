@@ -31,7 +31,7 @@ then
             --with-pkgversion="$GCC_PKG_NAME"   \
             --prefix=$GCC_INSTALL_PREFIX        \
             --program-suffix=$GCC_EXE_SUFFIX    \
-            --enable-languages=c,c++,fortran    \
+            --enable-languages=c,c++            \
             --disable-multilib
     else
         echo "Unknown build platform! Platform = $GCC_PLATFORM!"
