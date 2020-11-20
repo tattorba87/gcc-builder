@@ -23,6 +23,7 @@ if [ ! -e config.log ]
 then
     echo ""
     echo "Running configure from $GCC_SRC_DIR... "
+    echo ""
 
     if [ "$GCC_PLATFORM" == "Linux" ]
     then
@@ -33,7 +34,7 @@ then
             --enable-languages=c,c++,fortran    \
             --disable-multilib                  \
     else
-        echo "Unknown build platform!"
+        echo "Unknown build platform! Platform = $GCC_PLATFORM!"
         exit 1
     fi
 

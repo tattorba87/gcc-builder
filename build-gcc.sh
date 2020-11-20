@@ -10,6 +10,8 @@
 export TOP_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd $TOP_DIR
 
+set -eo pipefail
+
 ##- Get the GCC-related variables for this build.
 ##
 source ./gcc-build-vars.sh
