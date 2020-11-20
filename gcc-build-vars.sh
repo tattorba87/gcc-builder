@@ -44,12 +44,6 @@ export GCC_TIME_STAMP=202011201200
 export GCC_BUILD_JOBS_ARG='-j64'
 export GCC_TEST_JOBS_ARG='-j32'
 
-##- Set this variable to YES if you want to embed the assember and linker
-##  from a custom version of GNU Binutils (specified below) into the GCC
-##  installation.  If you just want to use the system's assembler and linker,
-##  then undefine this variable or set its value to "NO".
-##
-export GCC_USE_CUSTOM_BINUTILS=NO
 
 ##------------------------------------------------------------------------------
 ##      Maybe change below this line, if you have a good reason.
@@ -69,14 +63,7 @@ export GCC_EXE_SUFFIX=
 ##
 export GCC_PLATFORM=`uname`
 
-export GCC_TARBALL=gcc-$GCC_VERSION.tar.xz
-
-if [ "$GCC_PLATFORM" == "Linux" ] && [ "$GCC_USE_CUSTOM_BINUTILS" == "YES" ]
-then
-    export BU_TARBALL=binutils-$BU_VERSION.tar.xz
-    export BU_SRC_DIR=$TOP_DIR/binutils-$BU_VERSION
-    export BU_BLD_DIR=$TOP_DIR/binutils-$BU_VERSION-build
-fi
+export GCC_TARBALL=gcc-$GCC_VERSION.tar.gz
 
 export ALL_TARBALLS="$GCC_TARBALL"
 
