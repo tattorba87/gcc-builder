@@ -29,7 +29,7 @@ then
     then
         $GCC_SRC_DIR/configure -v               \
             --prefix=$GCC_INSTALL_PREFIX        \
-            --enable-languages=c,c++            \
+            --enable-languages=c,c++,fortran    \
             --disable-multilib
     else
         echo "Unknown build platform! Platform = $GCC_PLATFORM!"
